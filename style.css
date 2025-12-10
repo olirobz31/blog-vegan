@@ -1154,3 +1154,124 @@ body.menu-open {
         padding: 25px 20px;
     }
 }
+
+/* ===== ARTICLE CARD LINK FIX ===== */
+.article-card.large a {
+    display: block;
+    height: 100%;
+}
+
+.article-card.large a img {
+    height: 100%;
+}
+
+.article-card a {
+    display: block;
+}
+
+/* ===== BLOG ARTICLE STYLES ===== */
+.blog-article .recipe-intro {
+    margin-bottom: 40px;
+}
+
+.blog-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-section {
+    margin-bottom: 40px;
+}
+
+.blog-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2d5a27;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.blog-section h2 i {
+    font-size: 1.3rem;
+}
+
+.blog-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #333;
+    margin: 25px 0 15px 0;
+}
+
+.blog-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.blog-section ul {
+    margin: 20px 0;
+    padding-left: 25px;
+}
+
+.blog-section ul li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.blog-section ul li::marker {
+    color: #2d5a27;
+}
+
+.blog-conclusion {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 4px solid #2d5a27;
+}
+
+.blog-conclusion h2 {
+    margin-top: 0;
+}
+
+.blog-conclusion p:last-child {
+    margin-bottom: 0;
+}
+
+/* Article card link styles (index.html) */
+.articles-section .article-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.articles-section .article-card a:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .blog-section h2 {
+        font-size: 1.4rem;
+    }
+    
+    .blog-section p,
+    .blog-section ul li {
+        font-size: 1rem;
+    }
+    
+    .blog-conclusion {
+        padding: 20px;
+    }
+}
+
+
+
+
+
