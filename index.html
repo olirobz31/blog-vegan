@@ -201,18 +201,27 @@
     </section>
 
     <!-- About Section -->
-    <section class="about-section">
-        <h2>À propos</h2>
-        <p>Bienvenue sur Vegetalicious.com, votre source d'inspiration pour des recettes végétariennes et végétaliennes délicieuses et nutritives. Vous trouverez ici une variété de recettes alléchantes et faciles à préparer.</p>
+<section class="about-section">
+    <h2>À propos</h2>
+    <p>Bienvenue sur Vegetalicious.com, votre source d'inspiration pour des recettes végétariennes et végétaliennes délicieuses et nutritives. Vous trouverez ici une variété de recettes alléchantes et faciles à préparer.</p>
+    
+    <div class="newsletter">
+        <h3>Abonnez-vous pour recevoir mes dernières recettes</h3>
         
-        <div class="newsletter">
-            <h3>Abonnez-vous pour recevoir mes dernières recettes</h3>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Votre adresse email" required>
-                <button type="submit">Rejoindre</button>
-            </form>
+        <div class="newsletter-success" id="newsletterSuccess" style="display: none;">
+            ✅ Merci pour votre abonnement ! Vous recevrez bientôt nos recettes.
         </div>
-    </section>
+        
+        <div class="newsletter-error" id="newsletterError" style="display: none;">
+            ❌ Erreur lors de l'inscription. Veuillez réessayer.
+        </div>
+        
+        <form class="newsletter-form" id="newsletterForm">
+            <input type="email" name="email" placeholder="Votre adresse email" required>
+            <button type="submit">Rejoindre</button>
+        </form>
+    </div>
+</section>
 
     <!-- Articles Section -->
     <section class="articles-section">

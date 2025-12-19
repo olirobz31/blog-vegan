@@ -96,3 +96,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Gestion du formulaire newsletter
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.getElementById('newsletterForm');
+    
+    if (newsletterForm) {
+        const successMessage = document.getElementById('newsletterSuccess');
+        const errorMessage = document.getElementById('newsletterError');
+        
+        newsletterForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Masquer les messages précédents
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Ajouter l'effet de chargement
+            newsletterForm.classList.add('loading');
+            
+            // Préparer les données
+            const formData = new FormData(newsletterForm);
+            formData.append('access_key', '9a01e0ea-0cc2-487d-8e01-f760a34845cf'); // ⚠️ REMPLACE PAR TA CLÉ
+            formData.append('subject', 'Nouvel abonné newsletter Végétalicious');
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    successMessage.style.display = 'block';
+                    newsletterForm.reset();
+                } else {
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                errorMessage.style.display = 'block';
+            } finally {
+                newsletterForm.classList.remove('loading');
+            }
+        });
+    }
+});
