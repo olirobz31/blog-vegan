@@ -1271,7 +1271,31 @@ body.menu-open {
     }
 }
 
+/* Messages de formulaire */
+.success-message {
+    background: #48bb78;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
 
+.error-message {
+    background: #f56565;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.contact-form.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
 
 
 

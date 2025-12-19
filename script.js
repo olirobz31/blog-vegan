@@ -49,3 +49,50 @@ navLinks.forEach(link => {
         icon.classList.add('fa-bars');
     });
 });
+
+// Gestion du formulaire de contact
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Masquer les messages précédents
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Ajouter l'effet de chargement
+            contactForm.classList.add('loading');
+            
+            // Préparer les données
+            const formData = new FormData(contactForm);
+            formData.append('access_key', '9a01e0ea-0cc2-487d-8e01-f760a34845cf'); // ⚠️ REMPLACE PAR TA CLÉ
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    successMessage.style.display = 'block';
+                    contactForm.reset();
+                    // Faire défiler vers le message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                errorMessage.style.display = 'block';
+            } finally {
+                contactForm.classList.remove('loading');
+            }
+        });
+    }
+});

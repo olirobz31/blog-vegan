@@ -181,15 +181,24 @@
         </div>
 
         <!-- Contact Form -->
-        <section class="contact-section">
-            <h2>Contactez-moi</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Nom" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message" rows="5" required></textarea>
-                <button type="submit">Envoyer</button>
-            </form>
-        </section>
+<section class="contact-section">
+    <h2>Contactez-moi</h2>
+    
+    <div class="success-message" id="successMessage" style="display: none;">
+        ✅ Merci ! Votre message a été envoyé avec succès.
+    </div>
+    
+    <div class="error-message" id="errorMessage" style="display: none;">
+        ❌ Oups ! Une erreur s'est produite. Veuillez réessayer.
+    </div>
+    
+    <form class="contact-form" id="contactForm">
+        <input type="text" name="name" placeholder="Nom" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
     </main>
 
     <!-- Footer -->
