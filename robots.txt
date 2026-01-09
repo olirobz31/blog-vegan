@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://olirobz31.github.io/blog-vegan/sitemap.xml
