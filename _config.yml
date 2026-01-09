@@ -1,0 +1,6 @@
+include:
+  - sitemap.xml
+  - robots.txt
+
+mime_types:
+  - xml: application/xml
