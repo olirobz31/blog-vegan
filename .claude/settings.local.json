@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAjout favicon Végétalicious et mise à jour du logo\n\n- Création des favicons à partir du logo \\(ico, png 16x16, 32x32, apple-touch-icon\\)\n- Ajout du favicon sur toutes les pages HTML\n- Remplacement du logo par images/Logo végétalicious.png\n- Réduction du padding du header\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+    ]
+  }
+}

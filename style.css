@@ -42,7 +42,7 @@ h1, h2, h3, h4 {
 /* ===== HEADER ===== */
 .header {
     background-color: #fff;
-    padding: 20px 40px;
+    padding: 0 40px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -65,7 +65,7 @@ h1, h2, h3, h4 {
 }
 
 .logo-img {
-    height: 100px;
+    height: 200px;
     width: auto;
 }
 
