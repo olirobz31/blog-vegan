@@ -173,6 +173,9 @@
                 tabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
 
+                // Cacher le formulaire mot de passe oublié
+                forgotPasswordForm.style.display = 'none';
+
                 if (tab.dataset.tab === 'connexion') {
                     connexionForm.style.display = 'block';
                     inscriptionForm.style.display = 'none';
