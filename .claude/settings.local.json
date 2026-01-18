@@ -5,7 +5,8 @@
       "Bash(git add:*)",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nAjout favicon Végétalicious et mise à jour du logo\n\n- Création des favicons à partir du logo \\(ico, png 16x16, 32x32, apple-touch-icon\\)\n- Ajout du favicon sur toutes les pages HTML\n- Remplacement du logo par images/Logo végétalicious.png\n- Réduction du padding du header\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nAjout fonctionnalité mot de passe oublié\n\n- Lien \"Mot de passe oublié\" sur la page de connexion\n- Formulaire de réinitialisation avec envoi d''email via Firebase\n- Styles CSS pour les nouveaux éléments\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
