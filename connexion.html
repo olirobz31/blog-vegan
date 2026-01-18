@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO de base -->
+    <title>Connexion | Végétalicious</title>
+    <meta name="description" content="Connectez-vous à votre compte Végétalicious pour sauvegarder vos recettes favorites et accéder à du contenu exclusif.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://olirobz31.github.io/blog-vegan/connexion.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Robots - pas d'indexation pour la page de connexion -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Fonts & Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/Logo végétalicious.png" alt="Végétalicious" class="logo-img">
+            </a>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item dropdown">
+                        <a href="recettes-vegetariennes.html">Recettes Végétariennes</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="vegetariennes-salees.html">Salée</a></li>
+                            <li><a href="vegetariennes-sucrees.html">Sucrée</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="recettes-vegan.html">Recettes Vegan</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="vegan-salees.html">Salée</a></li>
+                            <li><a href="vegan-sucrees.html">Sucrée</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="salades.html">Salades</a></li>
+                    <li class="nav-item"><a href="desserts.html">Desserts</a></li>
+                    <li class="nav-item"><a href="a-propos.html">Le Cuisinier</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="auth-page">
+        <div class="auth-container">
+            <h1 class="auth-title">Mon Compte</h1>
+
+            <!-- Onglets Connexion / Inscription -->
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="connexion">Connexion</button>
+                <button class="auth-tab" data-tab="inscription">Inscription</button>
+            </div>
+
+            <!-- Message d'erreur/succès -->
+            <div class="auth-message" id="authMessage" style="display: none;"></div>
+
+            <!-- Formulaire de connexion -->
+            <form class="auth-form" id="connexionForm">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required placeholder="votre@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Mot de passe</label>
+                    <input type="password" id="login-password" name="password" required placeholder="Votre mot de passe">
+                </div>
+                <button type="submit" class="auth-btn">Se connecter</button>
+            </form>
+
+            <!-- Formulaire d'inscription -->
+            <form class="auth-form" id="inscriptionForm" style="display: none;">
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" name="email" required placeholder="votre@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Mot de passe</label>
+                    <input type="password" id="register-password" name="password" required placeholder="Minimum 6 caractères" minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="register-password-confirm">Confirmer le mot de passe</label>
+                    <input type="password" id="register-password-confirm" name="password-confirm" required placeholder="Confirmez votre mot de passe" minlength="6">
+                </div>
+                <button type="submit" class="auth-btn">S'inscrire</button>
+            </form>
+
+            <!-- Section utilisateur connecté -->
+            <div class="user-profile" id="userProfile" style="display: none;">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <p class="user-email" id="userEmail"></p>
+                <button class="auth-btn logout-btn" id="logoutBtn">Se déconnecter</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <span>Végétalicious</span>
+        </div>
+        <nav class="footer-links">
+            <a href="mentions-legales.html">Mentions légales</a>
+            <a href="cookies.html">Politique en matière de cookies</a>
+            <a href="confidentialite.html">Politique de confidentialité</a>
+            <a href="conditions.html">Conditions d'utilisation</a>
+        </nav>
+        <p class="copyright">© 2023 par VÉGÉTALICIOUS.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="module">
+        import { connexion, inscription, deconnexion, observerConnexion } from './firebase-config.js';
+
+        // Éléments du DOM
+        const tabs = document.querySelectorAll('.auth-tab');
+        const connexionForm = document.getElementById('connexionForm');
+        const inscriptionForm = document.getElementById('inscriptionForm');
+        const userProfile = document.getElementById('userProfile');
+        const authMessage = document.getElementById('authMessage');
+        const userEmail = document.getElementById('userEmail');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        // Gestion des onglets
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                if (tab.dataset.tab === 'connexion') {
+                    connexionForm.style.display = 'block';
+                    inscriptionForm.style.display = 'none';
+                } else {
+                    connexionForm.style.display = 'none';
+                    inscriptionForm.style.display = 'block';
+                }
+
+                // Cacher le message
+                authMessage.style.display = 'none';
+            });
+        });
+
+        // Afficher un message
+        function showMessage(message, isError = false) {
+            authMessage.textContent = message;
+            authMessage.className = 'auth-message ' + (isError ? 'error' : 'success');
+            authMessage.style.display = 'block';
+        }
+
+        // Afficher/cacher les formulaires selon l'état de connexion
+        function updateUI(user) {
+            if (user) {
+                // Utilisateur connecté
+                document.querySelector('.auth-tabs').style.display = 'none';
+                connexionForm.style.display = 'none';
+                inscriptionForm.style.display = 'none';
+                userProfile.style.display = 'block';
+                userEmail.textContent = user.email;
+                authMessage.style.display = 'none';
+            } else {
+                // Utilisateur non connecté
+                document.querySelector('.auth-tabs').style.display = 'flex';
+                connexionForm.style.display = 'block';
+                inscriptionForm.style.display = 'none';
+                userProfile.style.display = 'none';
+                tabs[0].classList.add('active');
+                tabs[1].classList.remove('active');
+            }
+        }
+
+        // Observer l'état de connexion
+        observerConnexion(updateUI);
+
+        // Connexion
+        connexionForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            const result = await connexion(email, password);
+            if (result.success) {
+                showMessage('Connexion réussie !');
+            } else {
+                showMessage(result.error, true);
+            }
+        });
+
+        // Inscription
+        inscriptionForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const passwordConfirm = document.getElementById('register-password-confirm').value;
+
+            if (password !== passwordConfirm) {
+                showMessage('Les mots de passe ne correspondent pas', true);
+                return;
+            }
+
+            const result = await inscription(email, password);
+            if (result.success) {
+                showMessage('Inscription réussie ! Vous êtes maintenant connecté.');
+            } else {
+                showMessage(result.error, true);
+            }
+        });
+
+        // Déconnexion
+        logoutBtn.addEventListener('click', async () => {
+            const result = await deconnexion();
+            if (result.success) {
+                showMessage('Déconnexion réussie');
+            }
+        });
+    </script>
+<script type="module" src="auth-header.js"></script>
+</body>
+</html>
