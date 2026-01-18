@@ -1,6 +1,6 @@
 // Configuration Firebase pour Végétalicious
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 
 // Configuration Firebase
@@ -79,6 +79,25 @@ export async function deconnexion() {
 // Observer l'état de connexion
 export function observerConnexion(callback) {
     onAuthStateChanged(auth, callback);
+}
+
+// Fonction de réinitialisation du mot de passe
+export async function resetPassword(email) {
+    try {
+        await sendPasswordResetEmail(auth, email);
+        return { success: true };
+    } catch (error) {
+        let message = "Une erreur est survenue";
+        switch (error.code) {
+            case 'auth/user-not-found':
+                message = "Aucun compte trouvé avec cette adresse email";
+                break;
+            case 'auth/invalid-email':
+                message = "Adresse email invalide";
+                break;
+        }
+        return { success: false, error: message };
+    }
 }
 
 // Exporter auth pour utilisation directe si nécessaire

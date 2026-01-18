@@ -95,6 +95,18 @@
                     <input type="password" id="login-password" name="password" required placeholder="Votre mot de passe">
                 </div>
                 <button type="submit" class="auth-btn">Se connecter</button>
+                <a href="#" class="forgot-password-link" id="forgotPasswordLink">Mot de passe oublié ?</a>
+            </form>
+
+            <!-- Formulaire mot de passe oublié -->
+            <form class="auth-form" id="forgotPasswordForm" style="display: none;">
+                <p class="forgot-password-text">Entrez votre adresse email et nous vous enverrons un lien pour réinitialiser votre mot de passe.</p>
+                <div class="form-group">
+                    <label for="reset-email">Email</label>
+                    <input type="email" id="reset-email" name="email" required placeholder="votre@email.com">
+                </div>
+                <button type="submit" class="auth-btn">Envoyer le lien</button>
+                <a href="#" class="back-to-login-link" id="backToLoginLink">Retour à la connexion</a>
             </form>
 
             <!-- Formulaire d'inscription -->
@@ -141,16 +153,19 @@
 
     <script src="script.js"></script>
     <script type="module">
-        import { connexion, inscription, deconnexion, observerConnexion } from './firebase-config.js';
+        import { connexion, inscription, deconnexion, observerConnexion, resetPassword } from './firebase-config.js';
 
         // Éléments du DOM
         const tabs = document.querySelectorAll('.auth-tab');
         const connexionForm = document.getElementById('connexionForm');
         const inscriptionForm = document.getElementById('inscriptionForm');
+        const forgotPasswordForm = document.getElementById('forgotPasswordForm');
         const userProfile = document.getElementById('userProfile');
         const authMessage = document.getElementById('authMessage');
         const userEmail = document.getElementById('userEmail');
         const logoutBtn = document.getElementById('logoutBtn');
+        const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+        const backToLoginLink = document.getElementById('backToLoginLink');
 
         // Gestion des onglets
         tabs.forEach(tab => {
@@ -241,6 +256,37 @@
             const result = await deconnexion();
             if (result.success) {
                 showMessage('Déconnexion réussie');
+            }
+        });
+
+        // Afficher le formulaire mot de passe oublié
+        forgotPasswordLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            connexionForm.style.display = 'none';
+            forgotPasswordForm.style.display = 'block';
+            document.querySelector('.auth-tabs').style.display = 'none';
+            authMessage.style.display = 'none';
+        });
+
+        // Retour à la connexion
+        backToLoginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            forgotPasswordForm.style.display = 'none';
+            connexionForm.style.display = 'block';
+            document.querySelector('.auth-tabs').style.display = 'flex';
+            authMessage.style.display = 'none';
+        });
+
+        // Réinitialisation du mot de passe
+        forgotPasswordForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('reset-email').value;
+
+            const result = await resetPassword(email);
+            if (result.success) {
+                showMessage('Un email de réinitialisation a été envoyé à ' + email);
+            } else {
+                showMessage(result.error, true);
             }
         });
     </script>
